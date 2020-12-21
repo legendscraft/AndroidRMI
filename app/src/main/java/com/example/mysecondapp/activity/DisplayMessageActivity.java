@@ -1,4 +1,4 @@
-package com.example.mysecondapp;
+package com.example.mysecondapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.mysecondapp.R;
+import com.example.mysecondapp.RMIInterface;
+
+import lipermi.handler.CallHandler;
+import lipermi.net.Client;
 
 public class DisplayMessageActivity extends AppCompatActivity {
 
@@ -17,22 +25,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private SharedPreferences.Editor mEditor;
 
-    private EditText mName;
-    private Button btnLogout;
-    private Button btnViewFruits;
-    private Button btnAddFruitPrice;
-    private Button btnUpdateFruitPrice;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        mName = (EditText) findViewById(R.id.editTextTextPersonName);
-        btnLogout = (Button) findViewById(R.id.button2);
-        btnViewFruits = (Button) findViewById(R.id.viewFruits);
-        btnAddFruitPrice = (Button) findViewById(R.id.addFruitPrice);
-        btnUpdateFruitPrice = (Button) findViewById(R.id.updateFruitPrice);
+        EditText mName = (EditText) findViewById(R.id.editTextTextPersonName);
+        Button btnLogout = (Button) findViewById(R.id.button2);
+        Button btnViewFruits = (Button) findViewById(R.id.viewFruits);
+        Button btnAddFruitPrice = (Button) findViewById(R.id.addFruitPrice);
+        Button btnUpdateFruitPrice = (Button) findViewById(R.id.updateFruitPrice);
+        Button btnDeletedruitPrice = (Button) findViewById(R.id.deleteFruitPrice);
+        Button btnPrintReceipt = (Button) findViewById(R.id.printReceipt);
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mPreferences.edit();
@@ -65,6 +69,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 updateFruitPrice();
             }
         });
+        btnDeletedruitPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteFruitPrice();
+            }
+        });
+        btnPrintReceipt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                printReceipt();
+            }
+        });
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
@@ -90,6 +106,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
     public void updateFruitPrice() {
         // Do something in response to button
         Intent intent = new Intent(this, UpdateFruitPriceActivity.class);
+        startActivity(intent);
+    }
+    /** Called when the user taps the Update Fruits button */
+    public void deleteFruitPrice() {
+        // Do something in response to button
+        Intent intent = new Intent(this, DeleteFruitPriceActivity.class);
+        startActivity(intent);
+    }
+    /** Called when the user taps the Update Fruits button */
+    public void printReceipt() {
+        // Do something in response to button
+        Intent intent = new Intent(this, PrintReceiptActivity.class);
         startActivity(intent);
     }
     /** Called when the user taps the Logout button */

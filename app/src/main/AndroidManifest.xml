@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mysecondapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateFruitPriceActivity"></activity>
-        <activity android:name=".AddFruitPriceActivity" />
-        <activity android:name=".ViewFruitActivity" />
+        <activity android:name=".activity.UpdateFruitPriceActivity"></activity>
+        <activity android:name=".activity.AddFruitPriceActivity" />
+        <activity android:name=".activity.ViewFruitActivity" />
+        <activity android:name=".activity.DeleteFruitPriceActivity" />
+        <activity android:name=".activity.PrintReceiptActivity" />
         <activity
-            android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".activity.DisplayMessageActivity"
+            android:parentActivityName=".activity.MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,14 +1,23 @@
-package com.example.mysecondapp;
+package com.example.mysecondapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.mysecondapp.R;
+import com.example.mysecondapp.RMIInterface;
+
+import lipermi.handler.CallHandler;
+import lipermi.net.Client;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -19,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText mName;
     private Button btnLogin;
+
+    Client client;
+    RMIInterface rmiInterface;
+    boolean isConnected=false;
 
 
     @Override
@@ -34,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
 
         checkSharedPreferences();
 
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+        if (SDK_INT > 8)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            //your codes here
+
+        }
+
+        if(!isConnected)connect();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 String edit_message = mName.getText().toString();
                 mEditor.putString(getString(R.string.edit_message), edit_message);
                 mEditor.commit();
-
                 sendMessage();
             }
         });
@@ -60,6 +83,21 @@ public class MainActivity extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+    }
+
+    private void connect() {
+        try{
+            CallHandler callHandler = new CallHandler();
+            client = new Client("192.168.190.108", 1099, callHandler);
+            rmiInterface = (RMIInterface) client.getGlobal(RMIInterface.class);
+            isConnected=true;
+            Toast.makeText(this, "RMI connected.", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            Log.e("RMIOUT", e.getMessage());
+            Toast.makeText(this, "RMI connection failed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
