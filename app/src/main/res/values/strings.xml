@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android RMI App</string>
+    <string name="edit_message">Enter Username</string>
+    <string name="button_send">Login</string>
+    <string name="orange_price">Orange</string>
+    <string name="banana_price">Banana</string>
+    <string name="mango_price">Mango</string>
+</resources>

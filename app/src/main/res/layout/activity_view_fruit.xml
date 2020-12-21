@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BFF3FA"
+    tools:context=".ViewFruitActivity">
+
+ <!-- <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="83dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#000000"
+        android:text="Back"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+ <TextView
+     android:id="@+id/orangeId"
+     android:layout_width="80dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="120dp"
+     android:layout_marginLeft="120dp"
+     android:layout_marginTop="245dp"
+     android:layout_marginBottom="45dp"
+     android:autoText="false"
+     android:background="#00FFC107"
+     android:text="Orange"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toTopOf="@+id/bananaId"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:id="@+id/orangePrice"
+     android:layout_width="40dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="45dp"
+     android:layout_marginLeft="45dp"
+     android:layout_marginTop="245dp"
+     android:layout_marginEnd="120dp"
+     android:layout_marginRight="120dp"
+     android:layout_marginBottom="45dp"
+     android:text="30"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toTopOf="@+id/bananaPrice"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toEndOf="@+id/orangeId"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:id="@+id/bananaId"
+     android:layout_width="82dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="120dp"
+     android:layout_marginLeft="120dp"
+     android:layout_marginTop="45dp"
+     android:layout_marginBottom="45dp"
+     android:background="#00FFEB3B"
+     android:text="Banana"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toTopOf="@+id/mangoId"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/orangeId" />
+
+ <TextView
+     android:id="@+id/mangoPrice"
+     android:layout_width="40dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="45dp"
+     android:layout_marginLeft="45dp"
+     android:layout_marginTop="45dp"
+     android:layout_marginEnd="120dp"
+     android:layout_marginRight="120dp"
+     android:layout_marginBottom="200dp"
+     android:text="20"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toEndOf="@+id/mangoId"
+     app:layout_constraintTop_toBottomOf="@+id/bananaPrice" />
+
+ <TextView
+     android:id="@+id/mangoId"
+     android:layout_width="80dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="120dp"
+     android:layout_marginLeft="120dp"
+     android:layout_marginTop="45dp"
+     android:layout_marginBottom="200dp"
+     android:background="#00CDDC39"
+     android:text="Mango"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/bananaId" />
+
+ <TextView
+     android:id="@+id/bananaPrice"
+     android:layout_width="38dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="45dp"
+     android:layout_marginLeft="45dp"
+     android:layout_marginTop="45dp"
+     android:layout_marginEnd="120dp"
+     android:layout_marginRight="120dp"
+     android:layout_marginBottom="45dp"
+     android:text="40"
+     android:textSize="24sp"
+     app:layout_constraintBottom_toTopOf="@+id/mangoPrice"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toEndOf="@+id/bananaId"
+     app:layout_constraintTop_toBottomOf="@+id/orangePrice" />
+
+ <TextView
+     android:id="@+id/textViewFruit"
+     android:layout_width="80dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="120dp"
+     android:layout_marginLeft="120dp"
+     android:layout_marginTop="160dp"
+     android:text="Fruit"
+     android:textSize="24sp"
+     android:textStyle="bold"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:id="@+id/textViewFruitPrice"
+     android:layout_width="42dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="45dp"
+     android:layout_marginLeft="45dp"
+     android:layout_marginTop="160dp"
+     android:layout_marginEnd="120dp"
+     android:layout_marginRight="120dp"
+     android:text="Ksh"
+     android:textSize="24sp"
+     android:textStyle="bold"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toEndOf="@+id/textViewFruit"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:id="@+id/textViewViewFruits"
+     android:layout_width="130dp"
+     android:layout_height="50dp"
+     android:layout_marginStart="120dp"
+     android:layout_marginLeft="120dp"
+     android:layout_marginTop="60dp"
+     android:text="View Fruits"
+     android:textSize="24sp"
+     android:textStyle="bold"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
